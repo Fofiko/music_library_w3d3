@@ -1,5 +1,4 @@
 require_relative('../db/sql_runner.rb')
-require_relative('./artist.rb')
 
 class Album
 
@@ -21,6 +20,14 @@ class Album
     RETURNING *"
     values = [@title, @genre, @artist_id]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
+  end
+
+  def artist()
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@artist_id]
+    artist = SqlRunner.run(sql, values)
+    result = Artist.new(artist.first)
+    return result
   end
 
 
