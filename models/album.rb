@@ -64,5 +64,6 @@ class Album
     sql = "DELETE FROM albums"
     SqlRunner.run(sql)
   end
+  
 
 end

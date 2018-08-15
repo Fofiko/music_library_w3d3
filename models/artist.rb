@@ -63,4 +63,5 @@ class Artist
     SqlRunner.run(sql)
   end
 
+
 end
